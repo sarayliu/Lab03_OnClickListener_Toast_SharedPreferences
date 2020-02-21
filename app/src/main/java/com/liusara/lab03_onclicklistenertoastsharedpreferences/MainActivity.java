@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.putInt("count4", count4);
                 }
                 editor.apply();
-                Toast toast =  Toast.makeText(getApplicationContext(),v.getId()+" was pressed "+ count + " times", Toast.LENGTH_SHORT);
+                String id = v.getResources().getResourceName(v.getId());
+                Toast toast =  Toast.makeText(getApplicationContext(), id.substring(id.indexOf("/") + 1) +" was pressed "+ count + " times", Toast.LENGTH_SHORT);
                 toast.show();
             }
         };
@@ -83,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 displayText1.setTextSize(progress + 1);
+                displayText2.setTextSize(progress + 1);
+                displayText3.setTextSize(progress + 1);
+                displayText4.setTextSize(progress + 1);
             }
 
             @Override
